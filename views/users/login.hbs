@@ -1,0 +1,104 @@
+<div class="image-container">
+    <img src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597474737/assets/logo-navbar-grande_trvgyk.png"
+        class="img-fluid mx-auto nav-logo" alt="timp logo">
+
+    <img src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597588323/assets/undraw_social_friends_nsbv_jkbixd.png"
+        class="img-fluid py-5 mx-auto login-svg" alt="girl in a laptop">
+    <p class="text-center">This Is My Proyect is a website to share your code projects with the whole world.</p>
+</div>
+<div class="card my-5">
+    <div class="card-title">
+        {{#if message}}    
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+
+        {{#if error.validation}}
+        <div class="alert alert-danger" role="alert">
+            {{error.validation.message}}
+        </div>
+        {{/if}}
+    </div>
+    <div class="card-body">
+        {{!-- form open--}}
+        <form action="/login" method="POST">
+            <p class="h4 text-center py-4">Log in</p>
+            <div class="md-form mx-5">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input name="email" type="email" id="materialFormCardEmailEx"
+                    class="form-control {{#if error.email }}is-invalid{{/if}}" value="{{ user.email }}" required>
+                <label for="email" class="font-weight-light">Your email</label>
+                {{#if error.email}}
+                <div class="invalid-feedback">
+                    {{error.email.message}}
+                </div>
+                {{/if}}
+
+            </div>
+            <div class="md-form mx-5">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input name="password" type="password" id="materialFormCardPasswordEx"
+                    class="form-control {{#if error.password }}is-invalid{{/if}}" value="{{ user.password }}" required>
+                <label for="password" class="font-weight-light">Your password</label>
+                {{#if error.password}}
+                <div class="invalid-feedback">
+                    {{error.password.message}}
+                </div>
+                {{/if}}
+            </div>
+            <div class="text-center py-4 mt-3">
+                <button class="btn button-2" type="submit">Login</button>
+                <div class="py-3">
+                    <a href="/auth/slack"><img
+                            src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597601585/assets/Slack_icon_xjvq9x.png"
+                            class="social-logo" alt="slack logo"><span class="px-3">Login with Slack</span></a>
+
+                </div>
+
+            </div>
+            <p class="text-center">Don't have an account? <a href="/users/new" class="text-muted">register</a></p>
+            {{!-- form close--}}
+        </form>
+    </div>
+</div>
+
+
+{{!-- 
+    <article class="container">
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input name="email" type="email" class="form-control {{#if error.email }}is-invalid{{/if}}" id="email"
+                placeholder="Enter email" value="{{ user.email }}" required>
+
+            {{#if error.email}}
+            <div class="invalid-feedback">
+                {{error.email.message}}
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control {{#if error.password }}is-invalid{{/if}}"
+                id="password" placeholder="Enter password" value="{{ user.password }}" required>
+
+            {{#if error.password}}
+            <div class="invalid-feedback">
+                {{error.password.message}}
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="d-flex mb-3">
+            <button type="submit" class="btn btn-primary mr-3">Login</button>
+            <a href="/auth/slack" class="btn btn-secondary"><i class="fa fa-slack"></i> Login with Slack</a>
+        </div>
+
+        <p>Don't have an account? <a href="/users/new">register</a></p>
+    </form>
+</article> --}}

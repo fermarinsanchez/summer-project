@@ -1,0 +1,55 @@
+:root {
+  --yellow-one-color: #F1E648;
+  --yellow-light-color :#FFF566;
+  --yellow-dark-color: #A69D21;
+  --violet-dark-color: #3F11A6;
+  --violet-light-color: #7D49F2;
+}
+
+body {
+    font-family: 'Roboto';
+    font-weight: 200;
+  }
+  
+  .nav-logo {
+    width: 8em;
+  }
+
+  .login-svg {
+    width: 30em;
+    display: inline-block;
+    margin: auto;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+  
+  label {
+    font-weight: 400;
+  }
+
+  form {
+    font-size: 22px;
+  }
+
+  .button-1 {
+    background-color: var(--violet-light-color);
+    color: white;
+  }
+
+  .button-2 {
+    background-color: var(--yellow-dark-color);
+    color: white;
+    
+  }
+
+  .social-logo {
+    width: 2em;
+  }

@@ -1,0 +1,85 @@
+<div class="image-container">
+    <img src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597474737/assets/logo-navbar-grande_trvgyk.png"
+        class="img-fluid mx-auto nav-logo" alt="timp logo">
+
+    <img src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597698536/assets/new-user-svg_fanl1j.png"
+        class="img-fluid py-5 mx-auto login-svg" alt="girl in a laptop">
+    <p class="text-center">Fill the form to become a new <i>timp</i> user and don't forget your avatar image. </p>
+</div>
+
+<article class="container">
+    <p class="h4 text-center pt-4">New User</p>
+    <div class="card-body">
+        <form action="/users" method="POST" enctype="multipart/form-data">
+            <div class="md-form">
+
+                <input name="name" type="text" value="{{user.name}}" placeholder="Name"
+                    class="form-control {{#if error.name }}is-invalid{{/if}}" id="name" required>
+
+                {{#if error.name}}
+                <div class="invalid-feedback">
+                    {{error.name.message}}
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="md-form">
+
+                <input type="email" value="{{user.email}}" class="form-control {{#if error.email }}is-invalid{{/if}}"
+                    id="email" name="email" placeholder="Email" required>
+
+                {{#if error.email}}
+                <div class="invalid-feedback">
+                    {{error.email.message}}
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="md-form">
+
+                <input type="password" class="form-control {{#if error.password }}is-invalid{{/if}}" id="password"
+                    name="password" placeholder="Password">
+
+                {{#if error.password}}
+                <div class="invalid-feedback">
+                    {{error.password.message}}
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="md-form">
+
+                <textarea rows="5" type="text" class="form-control {{#if error.bio }}is-invalid{{/if}}" name="bio"
+                    id="bio" placeholder="  Write here your Bio">{{user.bio}}</textarea>
+
+                {{#if error.bio}}
+                <div class="invalid-feedback">
+                    {{error.bio.message}}
+                </div>
+                {{/if}}
+            </div>
+
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text button-1" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                        aria-describedby="inputGroupFileAddon01" name="avatar" placeholder="Choose file">
+                    <label class="custom-file-label font-weight-lighter" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+           
+            {{#if error.avatar}}
+            <div class="invalid-feedback">
+                {{error.avatar.message}}
+            </div>
+            {{/if}} 
+
+            <div class="text-center py-4 mt-3">
+                <button type="submit" class="text-center mx-auto btn button-2">Submit</button>
+            </div>
+        </form>
+    </div>
+</article>
