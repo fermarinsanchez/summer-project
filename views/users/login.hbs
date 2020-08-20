@@ -6,63 +6,78 @@
         class="img-fluid py-5 mx-auto login-svg" alt="girl in a laptop">
     <p class="text-center">This Is My Proyect is a website to share your code projects with the whole world.</p>
 </div>
-<div class="card my-5">
-    <div class="card-title">
-        {{#if message}}    
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6 col-sm-12">
+            <div class="card my-5 px-5">
+                <div class="card-title">
+                    {{#if message}}
+                    <div class="alert alert- alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
+
+                    {{#if error.validation}}
+                    <div class="alert alert-danger" role="alert">
+                        {{error.validation.message}}
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="card-body">
+                    {{!-- form open--}}
+                    <form action="/login" method="POST">
+                        <p class="h4 text-center py-4">Log in</p>
+                        <div class="md-form mx-3">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input name="email" type="email" id="materialFormCardEmailEx"
+                                class="form-control {{#if error.email }}is-invalid{{/if}}" value="{{ user.email }}"
+                                required>
+                            <label for="email" class="font-weight-light">Your email</label>
+                            {{#if error.email}}
+                            <div class="invalid-feedback">
+                                {{error.email.message}}
+                            </div>
+                            {{/if}}
+
+                        </div>
+                        <div class="md-form mx-3">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input name="password" type="password" id="materialFormCardPasswordEx"
+                                class="form-control {{#if error.password }}is-invalid{{/if}}"
+                                value="{{ user.password }}" required>
+                            <label for="password" class="font-weight-light">Your password</label>
+                            {{#if error.password}}
+                            <div class="invalid-feedback">
+                                {{error.password.message}}
+                            </div>
+                            {{/if}}
+                        </div>
+                        <div class="text-center py-4 mt-3">
+                            <button class="btn button-2" type="submit">Login</button>
+                            <div class="py-3">
+                                <a href="/auth/slack"><img
+                                        src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597601585/assets/Slack_icon_xjvq9x.png"
+                                        class="social-logo" alt="slack logo"><span class="px-3">Login with
+                                        Slack</span></a><br>
+                                <a href="/auth/google"><img
+                                        src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597601585/assets/Google-icon_pmbi3z.png"
+                                        class="social-logo py-3" alt="google logo"><span class="px-3">Login with
+                                        Google</span></a>
+
+                            </div>
+
+                        </div>
+                        <p class="text-center">Don't have an account? <a href="/users/new"
+                                class="text-muted">register</a></p>
+                        {{!-- form close--}}
+                    </form>
+                </div>
+            </div>
+
         </div>
-        {{/if}}
-
-        {{#if error.validation}}
-        <div class="alert alert-danger" role="alert">
-            {{error.validation.message}}
-        </div>
-        {{/if}}
-    </div>
-    <div class="card-body">
-        {{!-- form open--}}
-        <form action="/login" method="POST">
-            <p class="h4 text-center py-4">Log in</p>
-            <div class="md-form mx-5">
-                <i class="fa fa-envelope prefix grey-text"></i>
-                <input name="email" type="email" id="materialFormCardEmailEx"
-                    class="form-control {{#if error.email }}is-invalid{{/if}}" value="{{ user.email }}" required>
-                <label for="email" class="font-weight-light">Your email</label>
-                {{#if error.email}}
-                <div class="invalid-feedback">
-                    {{error.email.message}}
-                </div>
-                {{/if}}
-
-            </div>
-            <div class="md-form mx-5">
-                <i class="fa fa-lock prefix grey-text"></i>
-                <input name="password" type="password" id="materialFormCardPasswordEx"
-                    class="form-control {{#if error.password }}is-invalid{{/if}}" value="{{ user.password }}" required>
-                <label for="password" class="font-weight-light">Your password</label>
-                {{#if error.password}}
-                <div class="invalid-feedback">
-                    {{error.password.message}}
-                </div>
-                {{/if}}
-            </div>
-            <div class="text-center py-4 mt-3">
-                <button class="btn button-2" type="submit">Login</button>
-                <div class="py-3">
-                    <a href="/auth/slack"><img
-                            src="https://res.cloudinary.com/difhe4gl3/image/upload/v1597601585/assets/Slack_icon_xjvq9x.png"
-                            class="social-logo" alt="slack logo"><span class="px-3">Login with Slack</span></a>
-
-                </div>
-
-            </div>
-            <p class="text-center">Don't have an account? <a href="/users/new" class="text-muted">register</a></p>
-            {{!-- form close--}}
-        </form>
     </div>
 </div>
 

@@ -7,7 +7,7 @@ module.exports.login = (req, res, next) => {
   res.render('users/login');
 }
 
-// Controller to social login (passport)
+// Controller to social login  Slack (passport)
 
 module.exports.doSocialLogin = (req, res, next) => {
   const passportController = passport.authenticate("slack", (error, user) => {
@@ -20,6 +20,33 @@ module.exports.doSocialLogin = (req, res, next) => {
   });
 
   passportController(req, res, next);
+}
+
+// Controller to social login  Google (passport)
+
+module.exports.doSocialLoginGoogle = (req, res, next) => {
+  const passportControllerGoogle = passport.authenticate('google', {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  });
+
+  passportControllerGoogle(req, res, next);
+};
+
+
+
+
+// Controller to callback login  Google (passport)
+
+module.exports.googleCallback = (req, res, next) => {
+  const googleCallback = passport.authenticate("google", {
+    successRedirect: "/projects",
+    failureRedirect: "/"
+  });
+
+  googleCallback(req, res, next);
 }
 
 // Controller to do login

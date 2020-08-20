@@ -1,10 +1,13 @@
 <article class="container">
-    <div class="row" style="margin-top: 90px;">
-        <div class="col-2">
+    <div class="row card py-5" style="margin-top: 9px;">
+        {{!-- <div class="col-2">
             <img class="w-100 rounded-circle" src="{{user.avatar}}" />
-        </div>
+        </div> --}}
 
-        <div class="col-10">
+        <div class="col-12 text-center">
+           
+            <img class="w-100 rounded-circle" src="{{user.avatar}}" style="max-width: 10em;"/>
+        
              <h1>{{user.name}}</h1>
             <p>{{user.bio}}</p>
             <p><strong>Email:</strong> {{user.email}}</p>
@@ -15,7 +18,7 @@
 
             {{#ifEquals currentUser.email user.email}}
             <div>
-                <a class="btn btn-secondary" href="/users/{{currentUser._id}}/edit">
+                <a class="btn button-1" href="/users/{{currentUser._id}}/edit">
                     <i class="fa fa-edit mr-2"></i>
                     Edit
                 </a>
@@ -48,7 +51,7 @@
     </div>
 
     <div>
-        <h2 class="my-4">Projects</h2>
+        <h2 class="my-4 text-center">Projects</h2>
 
         <div class="row">
             {{#each user.projects as |project|}}

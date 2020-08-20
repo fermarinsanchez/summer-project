@@ -36,7 +36,7 @@ body {
   }
 
   form {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .button-1 {
@@ -52,4 +52,8 @@ body {
 
   .social-logo {
     width: 2em;
+  }
+
+  .card-icon-color{
+    color:white;
   }

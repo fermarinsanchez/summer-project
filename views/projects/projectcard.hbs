@@ -3,10 +3,10 @@
   <img src="{{project.image}}" class="card-img-top" alt="...">
 
   <div class="card-body">
-    <h5 class="card-title"><a href="/projects/{{project._id}}" class="text-dark">{{project.name}}</a></h5>
+    <h5 class="card-title text-center"><a href="/projects/{{project._id}}" class="text-dark">{{project.name}}</a></h5>
 
     {{#if showDescription}}
-      <p class="card-text">
+      <p class="card-text text-center">
         {{project.description}}
       </p>
     {{/if}}
@@ -21,22 +21,22 @@
       {{/if}}
     </p>
 
-    <a href="{{project.github}}" class="btn btn-dark btn-sm" target="_blank">
-      <i class="fa fa-github mr-1"></i>
+    <a href="{{project.github}}" class="btn button-2 btn-sm" target="_blank">
+      <i class="fa fa-github mr-1 card-icon-color fa-lg"></i>
     </a>
 
-    <a href="{{project.url}}" class="btn btn-primary btn-sm" target="_blank">
-      <i class="fa fa-globe mr-1"></i>
+    <a href="{{project.url}}" class="btn button-1 btn-sm " target="_blank">
+      <i class="fa fa-globe mr-1 card-icon-color fa-lg"></i>
     </a>
 
-    <button type="button" class="btn-sm btn btn-outline-danger" data-like-project="{{project.id}}">
-      <i class="fa fa-heart mr-1"></i>
+    <button type="button" class="btn-sm btn lady-lips-gradient text-white" data-like-project="{{project.id}}">
+      <i class="fa fa-heart mr-1" style="color:red"></i>
       <span class="likes-count">{{project.likes}}</span>
       Likes
     </button>
   </div>
 
   <div class="card-footer">
-    <small class="text-muted">{{date project.createdAt}}</small>
+    <small class="text-muted">Created at: {{date project.createdAt}}</small>
   </div>
 </div>
