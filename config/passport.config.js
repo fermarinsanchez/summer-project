@@ -101,7 +101,7 @@ const google =  new GoogleStrategy(
   )
 
   passport.serializeUser(function(user, next) {
-    next(null, user.id);
+    next(null, user);
   });
   passport.deserializeUser(function(user, next) {
     next(null, user);
