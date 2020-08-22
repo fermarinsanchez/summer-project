@@ -526,7 +526,7 @@ module.exports.sendValidationEmail = ({ id, email, activationToken, name}) => {
              align="center" bgcolor="#F1E648" role="presentation" style="border:none;border-radius:2px;cursor:auto;mso-padding-alt:15px 30px;background:#F1E648;" valign="middle"
           >
             <a
-               href="http://localhost:3000/users/${id}/activate/${activationToken}" style="display:inline-block;background:#F1E648;color:BLACK;font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:15px 30px;mso-padding-alt:0px;border-radius:2px;" target="_blank"
+               href="https://timp-ironhack.herokuapp.com/users/${id}/activate/${activationToken}" style="display:inline-block;background:#F1E648;color:BLACK;font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:15px 30px;mso-padding-alt:0px;border-radius:2px;" target="_blank"
             >
               ACTIVATE YOUR ACCOUNT
             </a>
