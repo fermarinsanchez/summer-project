@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const host = process.env.PORT || 'http://localhost:3000';
+const host = process.env.PORT || 'https://timp-ironhack.herokuapp.com/';
 const user = process.env.NM_USER;
 
 const transport = nodemailer.createTransport(
@@ -26,7 +26,7 @@ module.exports.sendValidationEmail = ({ id, email, activationToken, name}) => {
     transport.sendMail({
         to: email,
         from: 'TIMP team',
-        subject: 'Please activate your account in a simple step <${name}>',
+        subject: 'Please activate your account in a simple step',
         html: `
     <!doctype html>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
