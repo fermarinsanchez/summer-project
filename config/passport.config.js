@@ -55,7 +55,6 @@ const google =  new GoogleStrategy(
       clientID: googleClient,
       clientSecret: googleSecret,
       callbackURL: "/auth/google/callback",
-      passReqToCallback: true
     },
     (accessToken, refreshToken, profile, done) => {
       // to see the structure of the data in received response:
