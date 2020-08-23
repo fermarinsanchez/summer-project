@@ -41,11 +41,15 @@ module.exports.doSocialLoginGoogle = (req, res, next) => {
 // Controller to callback login  Google (passport)
 
 module.exports.googleCallback = (req, res, next) => {
-  const googleCallback = passport.authenticate("google",  {
-    successRedirect: "/projects",
-    failureRedirect: "/"
+  const googleCallback = passport.authenticate("google",  (error, user) => {
+    if (error) {
+      next(error)
+    } else {
+      req.session.userId = user.id
+      res.redirect("/projects")
+    }
   });
-  console.log(req.session)
+  
   
   googleCallback(req, res, next);
 }
