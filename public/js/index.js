@@ -21,6 +21,6 @@ document.querySelectorAll("[data-enable]").forEach(el => {
           const likesContainer = this.querySelector(".likes-count")
   
           likesContainer.innerText = Number(likesContainer.innerText) + response.data.like
-        })
-    })
-  })
+        });
+    });
+  });

@@ -41,7 +41,7 @@ module.exports.doSocialLoginGoogle = (req, res, next) => {
 // Controller to callback login  Google (passport)
 
 module.exports.googleCallback = (req, res, next) => {
-  const googleCallback = passport.authenticate("google", {
+  const googleCallback = passport.authenticate("google",  {
     successRedirect: "/projects",
     failureRedirect: "/"
   });
@@ -149,7 +149,7 @@ module.exports.show = (req, res, next) => {
     .catch(next)
 };
 
-// Controller to create user
+// Controller to create user and send email with token and validate
 
 module.exports.create = (req, res, next) => {
   const user = new User({
