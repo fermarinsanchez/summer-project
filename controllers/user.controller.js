@@ -45,7 +45,8 @@ module.exports.googleCallback = (req, res, next) => {
     successRedirect: "/projects",
     failureRedirect: "/"
   });
-
+  console.log(req.session.userId)
+  req.session.userId = user._id;
   googleCallback(req, res, next);
 }
 
